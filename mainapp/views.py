@@ -1,11 +1,9 @@
 from django.http import JsonResponse
-from pygments.token import String
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .drivers.mongodb_driver import MongoDriver
 from .drivers.postgres_driver import PostgresDriver

@@ -2,20 +2,22 @@
   {
     "model": "mainapp.room",
     "pk": 1,
-    "fields": {
-      "room_code": "R101",
-      "capacity": 40,
-      "room_type": "Class Room"
-    }
+    "fields": {"room_code": "R101", "capacity": 40, "room_type": "Class Room"}
   },
   {
     "model": "mainapp.room",
     "pk": 2,
-    "fields": {
-      "room_code": "LAB1",
-      "capacity": 25,
-      "room_type": "Lab"
-    }
+    "fields": {"room_code": "LAB1", "capacity": 25, "room_type": "Lab"}
+  },
+  {
+    "model": "mainapp.room",
+    "pk": 3,
+    "fields": {"room_code": "R102", "capacity": 50, "room_type": "Class Room"}
+  },
+  {
+    "model": "mainapp.room",
+    "pk": 4,
+    "fields": {"room_code": "LH1", "capacity": 100, "room_type": "Lecture Theatre"}
   },
   {
     "model": "mainapp.teacher",
@@ -28,6 +30,32 @@
       "designation": "Professor",
       "working_days": "Mon,Tue,Wed",
       "teacher_code": "AS001"
+    }
+  },
+  {
+    "model": "mainapp.teacher",
+    "pk": 2,
+    "fields": {
+      "phone": "2345678901",
+      "email": "bob@example.com",
+      "name": "Bob Jones",
+      "department": "CSE",
+      "designation": "Associate Professor",
+      "working_days": "Tue,Wed,Thu",
+      "teacher_code": "BJ002"
+    }
+  },
+  {
+    "model": "mainapp.teacher",
+    "pk": 3,
+    "fields": {
+      "phone": "3456789012",
+      "email": "carol@example.com",
+      "name": "Carol Lee",
+      "department": "ECE",
+      "designation": "Assistant Professor",
+      "working_days": "Mon,Fri",
+      "teacher_code": "CL003"
     }
   },
   {
@@ -44,11 +72,92 @@
     }
   },
   {
+    "model": "mainapp.subject",
+    "pk": 2,
+    "fields": {
+      "subject_name": "Algorithms",
+      "subject_code": "CS202",
+      "semester": 3,
+      "credits": 4,
+      "dept": "CSE",
+      "course": "B.Tech",
+      "branch": ""
+    }
+  },
+  {
+    "model": "mainapp.subject",
+    "pk": 3,
+    "fields": {
+      "subject_name": "Signals",
+      "subject_code": "EC301",
+      "semester": 5,
+      "credits": 3,
+      "dept": "ECE",
+      "course": "B.Tech",
+      "branch": ""
+    }
+  },
+  {
     "model": "mainapp.teachersubject",
     "pk": 1,
+    "fields": {"teacher_id": 1, "subject_id": 1}
+  },
+  {
+    "model": "mainapp.teachersubject",
+    "pk": 2,
+    "fields": {"teacher_id": 2, "subject_id": 2}
+  },
+  {
+    "model": "mainapp.teachersubject",
+    "pk": 3,
+    "fields": {"teacher_id": 3, "subject_id": 3}
+  },
+  {
+    "model": "mainapp.student",
+    "pk": 1,
     "fields": {
-      "teacher_id": 1,
-      "subject_id": 1
+      "student_name": "Eve Adams",
+      "student_id": "S1001",
+      "is_hosteller": false,
+      "location": "City A",
+      "dept": "CSE",
+      "course": "B.Tech",
+      "branch": "",
+      "semester": 3,
+      "section": "A",
+      "cgpa": "8.5"
+    }
+  },
+  {
+    "model": "mainapp.student",
+    "pk": 2,
+    "fields": {
+      "student_name": "Frank Baker",
+      "student_id": "S1002",
+      "is_hosteller": true,
+      "location": "Hostel",
+      "dept": "CSE",
+      "course": "B.Tech",
+      "branch": "",
+      "semester": 3,
+      "section": "A",
+      "cgpa": "7.9"
+    }
+  },
+  {
+    "model": "mainapp.student",
+    "pk": 3,
+    "fields": {
+      "student_name": "Grace Chen",
+      "student_id": "S2001",
+      "is_hosteller": false,
+      "location": "City B",
+      "dept": "ECE",
+      "course": "B.Tech",
+      "branch": "",
+      "semester": 5,
+      "section": "B",
+      "cgpa": "8.1"
     }
   }
 ]
