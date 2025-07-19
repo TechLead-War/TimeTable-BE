@@ -1,0 +1,54 @@
+[
+  {
+    "model": "mainapp.room",
+    "pk": 1,
+    "fields": {
+      "room_code": "R101",
+      "capacity": 40,
+      "room_type": "Class Room"
+    }
+  },
+  {
+    "model": "mainapp.room",
+    "pk": 2,
+    "fields": {
+      "room_code": "LAB1",
+      "capacity": 25,
+      "room_type": "Lab"
+    }
+  },
+  {
+    "model": "mainapp.teacher",
+    "pk": 1,
+    "fields": {
+      "phone": "1234567890",
+      "email": "alice@example.com",
+      "name": "Alice Smith",
+      "department": "CSE",
+      "designation": "Professor",
+      "working_days": "Mon,Tue,Wed",
+      "teacher_code": "AS001"
+    }
+  },
+  {
+    "model": "mainapp.subject",
+    "pk": 1,
+    "fields": {
+      "subject_name": "Data Structures",
+      "subject_code": "CS201",
+      "semester": 3,
+      "credits": 4,
+      "dept": "CSE",
+      "course": "B.Tech",
+      "branch": ""
+    }
+  },
+  {
+    "model": "mainapp.teachersubject",
+    "pk": 1,
+    "fields": {
+      "teacher_id": 1,
+      "subject_id": 1
+    }
+  }
+]
