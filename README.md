@@ -48,12 +48,17 @@ Ensure you have the following installed:
    python manage.py migrate
    ```
 
-6. **Create a Superuser** (for the admin panel):
+6. **Load Sample Data** (optional):
+   ```bash
+   python manage.py loaddata mainapp/fixtures/sample_data.json
+   ```
+
+7. **Create a Superuser** (for the admin panel):
    ```bash
    python manage.py createsuperuser
    ```
 
-7. **Start the Development Server**:
+8. **Start the Development Server**:
    ```bash
    python manage.py runserver
    ```

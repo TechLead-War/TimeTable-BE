@@ -2,12 +2,16 @@
 from rest_framework.decorators import api_view
 from rest_framework import status
 from datetime import datetime
-from ..db_drivers.mongodb_driver import MongoDriver
+from ..drivers.mongodb_driver import MongoDriver
 from .serializers import TimetableSerializer
 from django.http import JsonResponse
 
-# Initialize MongoDB driver
-mongo_driver = MongoDriver()
+
+def get_mongo_driver():
+    try:
+        return MongoDriver()
+    except Exception as e:
+        raise ValueError(f"MongoDB connection error: {e}")
 
 @api_view(['POST'])
 def updateTimeTable(request):
@@ -31,6 +35,7 @@ def updateTimeTable(request):
     # Define query for the specific timetable
     query = {"course_id": course_id, "semester": semester}
 
+    mongo_driver = get_mongo_driver()
     # Fetch the current timetable
     current_timetable = list(mongo_driver.find(current_collection, query))
 
@@ -63,6 +68,7 @@ def getCurrentTimeTable(request, course_id, semester):
     """
     Fetch the current timetable for a given course and semester.
     """
+    mongo_driver = get_mongo_driver()
     query = {"course_id": course_id, "semester": semester}
     current_timetable = list(mongo_driver.find("current_timetable", query))
 
@@ -80,6 +86,7 @@ def getHistoricalTimeTable(request, course_id, semester):
     """
     Fetch the historical timetables for a given course and semester.
     """
+    mongo_driver = get_mongo_driver()
     query = {"course_id": course_id, "semester": semester}
     historical_timetables = list(mongo_driver.find("historical_timetable", query))
 
